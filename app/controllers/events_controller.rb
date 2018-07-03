@@ -12,6 +12,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.includes(:questions).find_by(id: params[:id])
     @question = Question.new
+    @like = Like.new
   end
 
   # GET /events/new

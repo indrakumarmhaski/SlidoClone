@@ -10,4 +10,8 @@ class EventChannel < ApplicationCable::Channel
     def send_question(data)
         current_user.questions.create!(question: data['question'], event_id: data['event_id'])
     end
+
+    def send_like(data)
+      current_user.likes.create!(question_id: data['question_id'])
+    end
   end

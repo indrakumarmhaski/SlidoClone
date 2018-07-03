@@ -4,11 +4,19 @@
       <div class="col-md-1">
             <%= image_tag( question.user.avatar_url,class: 'pro-i index-thumb flex-auto  d-lg-block') %> 
       </div>
-      <div class="col-md-11">
+      <div class="col-md-9">
         <p class="card-text">
           <span class="text-muted"><%= question.user.name %> at <%= question.created_at.to_s(:long) %> Asked </span><br>
           <%= question.question %>
         </p>
+      </div>
+      <div class="col-md-1" id="question-<%=question.id%>">
+        <%= question.likes.count %>
+      </div>
+      <div class="col-md-1">
+        <%= form_for @like,html: { id: "#{ question.id }" }, url: '#' do |f| %>
+          <%= f.submit "Like", class: 'btn btn-primary btn-sm' %>
+        <% end %>
       </div>
     </div>
   </div>

@@ -13,10 +13,17 @@ jQuery(document).on 'turbolinks:load', ->
         # Called when the subscription has been terminated by the server
 
       received: (data) ->
-        questions.append data['question']
+        if data['question']
+          questions.append data['question']
+        else if data['like']
+          $("#question-#{data['question_id']}").html(data['like'])
+        
 
       send_question: (question, event_id) ->
         @perform 'send_question', question: question, event_id: event_id
+      
+      send_like: ( question_id ) ->
+        @perform 'send_like', question_id: question_id
 
       $('#new_question').submit (e) ->
             $this = $(this)
@@ -25,4 +32,13 @@ jQuery(document).on 'turbolinks:load', ->
                 App.global_chat.send_question textarea.val(), questions.data('event-id')
                 textarea.val('')
             e.preventDefault()
+            return false
+      
+      $('.new_like').submit (f) ->
+            App.global_chat.send_like this.id
+            $this = $(this)
+            btn = $this.find('.btn')
+            btn.addClass("disabled")
+            btn.attr("disabled", true)
+            f.preventDefault()
             return false
