@@ -12,6 +12,12 @@
       <li class="nav-item">
         <%= link_to 'About', pages_about_path, class: 'nav-link active' %>
       </li>
+
+      <li class="nav-item">
+        <% if current_user %>
+          <%= link_to 'My Events', pages_myevents_path, class: 'nav-link active' %>
+        <% end %>
+      </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <ul class="navbar-nav mr-auto">

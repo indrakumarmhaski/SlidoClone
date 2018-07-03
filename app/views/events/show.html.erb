@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @event.name %>
+</p>
+
+<p>
+  <strong>Join code:</strong>
+  <%= @event.join_code %>
+</p>
+
+<% if current_user.id == @event.user.id %>
+  <%= link_to 'Edit', edit_event_path(@event) %> |
+<% end %>
+<%= link_to 'Back', pages_myevents_path %>

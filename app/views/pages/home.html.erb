@@ -1,2 +1,16 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<br>
+<br>
+<br>
+
+<div class="text-center">
+    <h3> Join A Event </h3>
+    <%= form_tag('/pages/joinevent') do -%>
+    <div>
+        <%= label_tag 'join_code', 'Join code' %>
+        <%= text_field_tag 'join_code'%>
+    </div>
+    <div>
+        <%= submit_tag 'Join' %>
+    </div>
+    <% end -%>
+</div>

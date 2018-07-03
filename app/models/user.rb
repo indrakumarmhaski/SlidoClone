@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   mount_uploader :avatar, AvatarUploader # Tells rails to use this uploader for this model.
   validates :name, :avatar, presence: true
+  has_many :events, dependent: :destroy
 end
