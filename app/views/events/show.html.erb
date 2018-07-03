@@ -4,9 +4,22 @@
   <%= @event.name %>
 </p>
 
-<div id="questions">
+<div id="questions" data-event-id="<%= @event.id %>">
   <%= render @event.questions %>
 </div>
+
+<hr>
+
+<%= form_for @question, url: '#' do |f| %>
+  <div class="form-group">
+    <%= f.label :question %>
+    <%= f.text_area :question, class: 'form-control' %>
+    <small class="text-muted">From 2 to 1000 characters</small>
+  </div>
+  <%= f.submit "Ask", class: 'btn btn-primary btn-lg' %>
+<% end %>
+
+<hr>
 
 <% if current_user.id == @event.user.id %>
   <%= link_to 'Edit', edit_event_path(@event) %> |
