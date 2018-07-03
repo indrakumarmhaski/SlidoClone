@@ -6,4 +6,5 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader # Tells rails to use this uploader for this model.
   validates :name, :avatar, presence: true
   has_many :events, dependent: :destroy
+  has_many :questions, dependent: :destroy
 end

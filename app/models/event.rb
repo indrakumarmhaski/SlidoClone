@@ -3,4 +3,5 @@ class Event < ApplicationRecord
     validates :name, :join_code, presence: true
     validates :name, :join_code, uniqueness: true
     validates :join_code, length: { minimum: 5 }
+    has_many :questions, dependent: :destroy
 end

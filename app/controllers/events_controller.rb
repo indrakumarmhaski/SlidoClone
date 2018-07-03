@@ -10,6 +10,7 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    @event = Event.includes(:questions).find_by(id: params[:id])
   end
 
   # GET /events/new
