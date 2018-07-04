@@ -1,3 +1,5 @@
+require 'bcrypt'
+BCrypt::Engine::DEFAULT_COST = 12
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
@@ -10,8 +12,8 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
-
-    if(params[:join_code])
+    if(session[:join_code] == @event.join_code)
+      session.delete(:join_code)
       @event = Event.includes(:questions).find_by(id: params[:id])
       @question = Question.new
     else
