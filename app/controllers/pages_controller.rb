@@ -1,3 +1,4 @@
+require 'bcrypt'
 class PagesController < ApplicationController
   def home
   end
