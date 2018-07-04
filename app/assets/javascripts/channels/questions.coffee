@@ -35,10 +35,10 @@ jQuery(document).on 'turbolinks:load', ->
             return false
       
       $('.new_like').submit (f) ->
-            App.global_chat.send_like this.id
             $this = $(this)
             btn = $this.find('.btn')
             btn.addClass("disabled")
             btn.attr("disabled", true)
+            App.global_chat.send_like this.id
             f.preventDefault()
             return false

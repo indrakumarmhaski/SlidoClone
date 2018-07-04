@@ -3,7 +3,7 @@ class LikeBroadcastJob < ApplicationJob
   
     def perform(like)
       ActionCable.server.broadcast "event_#{like.question.event.id}_channel",
-                                   like: like.question.likes.count, question_id: like.question.id
+                                   like: like.question.likes.distinct.count('user_id') , question_id: like.question.id
     end
   
   end

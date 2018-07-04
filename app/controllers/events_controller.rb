@@ -4,15 +4,19 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = current_user.events
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
-    @event = Event.includes(:questions).find_by(id: params[:id])
-    @question = Question.new
-    @like = Like.new
+
+    if(params[:join_code])
+      @event = Event.includes(:questions).find_by(id: params[:id])
+      @question = Question.new
+    else
+      redirect_to pages_home_path
+    end
   end
 
   # GET /events/new

@@ -4,17 +4,20 @@
       <div class="col-md-1">
             <%= image_tag( question.user.avatar_url,class: 'pro-i index-thumb flex-auto  d-lg-block') %> 
       </div>
-      <div class="col-md-9">
+      <div class="col-md-8">
         <p class="card-text">
           <span class="text-muted"><%= question.user.name %> at <%= question.created_at.to_s(:long) %> Asked </span><br>
           <%= question.question %>
         </p>
       </div>
       <div class="col-md-1" id="question-<%=question.id%>">
-        <%= question.likes.count %>
+        <%= question.likes.distinct.count('user_id') %>
       </div>
       <div class="col-md-1">
-        <%= form_for @like,html: { id: "#{ question.id }" }, url: '#' do |f| %>
+        <i class="far fa-heart"></i>
+      </div>
+      <div class="col-md-1">
+        <%= form_for Like.new,html: { id: "#{ question.id }", class: "new_like",onsubmit: "return myFunction(#{ question.id })" }, url: '#' do |f| %>
           <%= f.submit "Like", class: 'btn btn-primary btn-sm' %>
         <% end %>
       </div>
