@@ -1,16 +1,12 @@
-<br>
-<br>
-<br>
 
-<div class="text-center">
-    <h3> Join A Event </h3>
-    <%= form_tag('/pages/joinevent') do -%>
-    <div>
-        <%= label_tag 'join_code', 'Join code' %>
-        <%= text_field_tag 'join_code'%>
-    </div>
-    <div>
-        <%= submit_tag 'Join', class: 'btn btn-sm btn-primary' %>
-    </div>
+<div class="text-center body">
+    <%= form_tag('/pages/joinevent', class: "form-signin" ) do -%>
+      <i class="fas fa-handshake mb-4 mt-5"  width="72" height="72" style="font-size: 50px;"></i>
+      <h1 class="h3 mb-3 font-weight-normal">Join a event</h1>
+        <%= label_tag 'join_code', 'Join code',class: 'sr-only' %>
+        <%= text_field_tag 'join_code', '', class: "form-control", placeholder: "Join Code", autofocus: true %>
+      <br>
+      <button class="btn btn-lg btn-primary btn-block" type="submit"> Join </button>
     <% end -%>
 </div>
+
