@@ -15,3 +15,37 @@
  */
 
  @import 'bootstrap';
+.inline-block{
+    display: inline-block;
+}
+ .col-sm-2,.not-full-width {
+     width: unset;
+ }
+ .row {
+     margin-right: 0;
+ }
+ .no-b-margin {
+     margin-bottom: 0;
+ }
+/* For small screens */
+ @media(max-width: 710px) { 
+    .not-on-small{
+        display: none;
+    }
+    .question-section{
+        height: 500px;
+        overflow-y: scroll;
+        /* background-image: url("C:/Users/Dell/Downloads/Screenshot_20180628-190623.png"); */
+    }
+
+ }
+/* For big screens */
+ @media(min-width: 710px) {
+     .question-section{
+         height: 350px;
+         overflow-y: scroll;
+     }
+     .textarea{
+        width: 1300px;
+    }
+ }

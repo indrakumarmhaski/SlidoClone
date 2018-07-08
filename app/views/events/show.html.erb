@@ -1,10 +1,9 @@
 
 <p class="text-center">
-  <h3 class="text-center">Event Name</h3>
-  <h4 class="text-center primary"><%= @event.name %></h4>
+  <h3 class="text-center primary" style="font-family: 'Nova Square', cursive;"><%= @event.name %></h3>
 </p>
 
-<div id="questions" data-event-id="<%= @event.id %>">
+<div id="questions" class="question-section" data-event-id="<%= @event.id %>">
   <%= render @event.questions %>
 </div>
 
@@ -13,10 +12,10 @@
 <%= form_for @question, url: '#' do |f| %>
   <div class="form-group">
     <strong> <%= f.label "Your Question:" %> </strong>
-    <%= f.text_area :question, class: 'form-control' %>
-    <small class="text-muted">From 2 to 1000 characters</small>
+    <%= f.text_area :question, class: 'form-control ml-sm-5 ml-0 textarea' %>
+    <small class="text-muted ml-sm-5 ml-0">From 2 to 1000 characters</small>
   </div>
-  <%= f.submit "Ask", class: 'btn btn-primary btn-lg' %>
+  <%= f.submit "Ask This", class: 'btn btn-primary btn-lg ml-sm-5 ml-0' %>
 <% end %>
 
 <hr>

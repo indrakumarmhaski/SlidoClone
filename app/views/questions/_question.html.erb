@@ -1,26 +1,25 @@
-<div class="card">
-  <div class="card-block">
+<div class=" pl-2">
     <div class="row">
-      <div class="col-md-1">
+      <div class="col-md-1 col-sm-1 ml-xs-1 not-full-width inline-block">
             <%= image_tag( question.user.avatar_url,class: 'pro-i index-thumb flex-auto  d-lg-block') %> 
+                 <span class="text-muted d-sm-none"><%= question.user.name %> at <%= question.created_at.to_s(:long) %> Asked </span>
       </div>
-      <div class="col-md-8">
-        <p class="card-text">
-          <span class="text-muted"><%= question.user.name %> at <%= question.created_at.to_s(:long) %> Asked </span><br>
-          <%= question.question %>
-        </p>
+      <div class="col-md-8 col-sm-8 ml-xs-8 d-xs-none ">
+          <span class="text-muted not-on-small "> <%= question.user.name %> at <%= question.created_at.to_s(:long) %> Asked  <br> </span>
+          <p class="ml-5 ml-sm-4 no-b-margin">
+            <%= question.question %>      
+          </p>
       </div>
-      <div class="col-md-1" id="question-<%=question.id%>">
-        <%= question.likes.distinct.count('user_id') %>
+      <div class="col-md-1 col-sm-1 ml-xs-1 not-full-width" id="question-<%=question.id%>">
+        <%= question.likes.distinct.count('user_id') %> Likes
       </div>
-      <div class="col-md-1">
-        <i class="far fa-heart"></i>
-      </div>
-      <div class="col-md-1">
+      <div class="col-md-2 col-sm-2 ml-xs-2">
         <%= form_for Like.new,html: { id: "#{ question.id }", class: "new_like",onsubmit: "return myFunction(#{ question.id })" }, url: '#' do |f| %>
-          <%= f.submit "Like", class: 'btn btn-primary btn-sm' %>
+          <button type="submit" style=" background: skyblue;">
+            <i class="far fa-thumbs-up" aria-hidden="true"></i>
+          </button>
         <% end %>
       </div>
     </div>
-  </div>
+    <hr>
 </div>

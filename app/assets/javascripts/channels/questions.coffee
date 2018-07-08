@@ -1,7 +1,8 @@
 jQuery(document).on 'turbolinks:load', ->
   questions = $('#questions')
   if $('#questions').length > 0
-
+    questions_to_bottom = -> questions.scrollTop(questions.prop("scrollHeight"))
+    questions_to_bottom()
     App.global_chat = App.cable.subscriptions.create {
         channel: "EventChannel"
         event_id: questions.data('event-id')
@@ -15,8 +16,9 @@ jQuery(document).on 'turbolinks:load', ->
       received: (data) ->
         if data['question']
           questions.append data['question']
+          questions_to_bottom()
         else if data['like']
-          $("#question-#{data['question_id']}").html(data['like'])
+          $("#question-#{data['question_id']}").html(data['like'] + " Likes")
         
 
       send_question: (question, event_id) ->
