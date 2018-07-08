@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   mount_uploader :avatar, AvatarUploader # Tells rails to use this uploader for this model.
-  validates :name, presence: true
+  validates :name,:avatar, presence: true
   has_many :events, dependent: :destroy
   has_many :questions, dependent: :destroy
   has_many :likes, dependent: :destroy

@@ -48,4 +48,18 @@ body {
   border-top-right-radius: 0;
 }
 
+/* For small screens */
+@media(max-width: 710px) { 
+.home-form {
+  margin-top: 30px;
+}
+
+}
+/* For big screens */
+@media(min-width: 710px) {
+  .home-form {
+  margin-top: 70px;
+  }
+}
+
 // ======================================End home page form style=============================
