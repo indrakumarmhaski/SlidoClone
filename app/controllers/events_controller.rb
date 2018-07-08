@@ -1,6 +1,5 @@
-require 'bcrypt'
-BCrypt::Engine::DEFAULT_COST = 12
 class EventsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   # GET /events

@@ -1,6 +1,5 @@
-require 'bcrypt'
-BCrypt::Engine::DEFAULT_COST = 12
 class PagesController < ApplicationController
+  before_action :authenticate_user!, except: [:home,:about]
   def home
   end
 
