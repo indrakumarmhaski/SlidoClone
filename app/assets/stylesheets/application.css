@@ -33,9 +33,8 @@
         display: none;
     }
     .question-section{
-        height: 500px;
+        height: 300px;
         overflow-y: scroll;
-        /* background-image: url("C:/Users/Dell/Downloads/Screenshot_20180628-190623.png"); */
     }
 
  }
