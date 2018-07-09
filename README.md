@@ -1,24 +1,15 @@
-# README
+# SLIDO CLONE
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Ruby On Rails project in whcih we have created the clone of slido.com
 
-Things you may want to cover:
+Configuration :
 
-* Ruby version
+* Ruby version: 2.5.1p57 (2018-03-29 revision 63029)
 
-* System dependencies
+* Database: MySql
 
-* Configuration
+* It uses ActionCable
 
-* Database creation
+* Devise version: gem 'devise', '~> 4.4', '>= 4.4.3'
 
-* Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
