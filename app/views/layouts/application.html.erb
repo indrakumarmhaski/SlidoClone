@@ -11,13 +11,16 @@
     <link href="https://fonts.googleapis.com/css?family=Nova+Square" rel="stylesheet">
 
   <body>
-    <% if(notice || alert ) %>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+    <% if notice %>
+      <script> confirm("<%= notice %>"); </script>
+    <% elsif alert %>
+      <script> confirm("<%= alert %>"); </script>
     <% end %>
+
     <%= render 'shared/navbar' %>
     <%= yield %>
 
+    <%= render 'shared/footer'%>
 
 
     <%# <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> %>

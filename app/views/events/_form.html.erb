@@ -1,27 +1,29 @@
-<%= form_with(model: event, local: true) do |form| %>
-  <% if event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+<div class="form-signin home-form body">
+  <%= form_with(model: event, local: true) do |form| %>
+    <% if event.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
 
-      <ul>
-      <% event.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% event.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :name, class: "lead" %>
+      <%= form.text_field :name, class: "form-control",  autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= form.label :join_code, class: "lead" %>
+      <%= form.text_field :join_code , class: "form-control"%>
+    </div>
+    <br>
+    <div class="actions">
+      <button class="btn btn-lg btn-primary " type="submit"> Creat Event </button>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :join_code %>
-    <%= form.text_field :join_code %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
