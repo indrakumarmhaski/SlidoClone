@@ -11,11 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nova+Square" rel="stylesheet">
 
   <body>
-    <% if notice %>
-      <script> confirm("<%= notice %>"); </script>
-    <% elsif alert %>
-      <script> confirm("<%= alert %>"); </script>
-    <% end %>
+
 
     <%= render 'shared/navbar' %>
     <%= yield %>

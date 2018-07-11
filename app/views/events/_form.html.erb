@@ -1,4 +1,4 @@
-<div class="form-signin home-form body">
+<div class="form-signin home-form body text-center">
   <%= form_with(model: event, local: true) do |form| %>
     <% if event.errors.any? %>
       <div id="error_explanation">
@@ -23,7 +23,7 @@
     </div>
     <br>
     <div class="actions">
-      <button class="btn btn-lg btn-primary " type="submit"> Creat Event </button>
+      <button class="btn btn-lg btn-primary " type="submit"> Submit </button>
     </div>
   <% end %>
 </div>

@@ -12,7 +12,7 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     if(session[:join_code] == @event.join_code)
-      session.delete(:join_code)
+      # session.delete(:join_code)
       @event = Event.includes(:questions).find_by(id: params[:id])
       @question = Question.new
     else
